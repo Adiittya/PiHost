@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pihost/pages/add_pi.dart';
+import 'package:pihost/pages/add_pi/add_pi.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF212121),),
         useMaterial3: true,
       ),
-      home: const AddPi(),
+      home:  AddPi(),
     );
   }
 }

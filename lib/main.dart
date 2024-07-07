@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pihost/pages/add_pi/add_pi.dart';
 
 void main() {
@@ -10,14 +11,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'PiHost',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF212121),),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF212121)),
         useMaterial3: true,
       ),
-      home:  AddPi(),
+      home: AddPi(),
     );
   }
 }

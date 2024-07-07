@@ -17,9 +17,14 @@ class AddDeviceController extends GetxController {
   }
 }
 
-
 class DeviceController extends GetxController {
-  var devices = <Device>[].obs;
+  var devices = <Device>[
+    Device(
+        deviceName: "Raspberry Pi 4",
+        username: "pi",
+        ipAddress: "192.168.29.16",
+        portNumber: 22),
+  ].obs;
 
   void addDevice(Device device) {
     devices.add(device);
@@ -27,5 +32,9 @@ class DeviceController extends GetxController {
 
   void removeDevice(Device device) {
     devices.remove(device);
+  }
+
+  void connectDevice(Device device) {
+    // Connect to the device
   }
 }

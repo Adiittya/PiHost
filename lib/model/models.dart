@@ -1,8 +1,8 @@
 class Device {
-  final String deviceName;
-  final String username;
-  final String ipAddress;
-  final int portNumber;
+  late final String deviceName;
+  late final String username;
+  late final String ipAddress;
+  late final int portNumber;
 
   Device({
     required this.deviceName,

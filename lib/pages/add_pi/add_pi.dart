@@ -38,7 +38,7 @@ class AddPi extends StatelessWidget {
       ),
       backgroundColor: bgColor,
       body: Container(
-        margin: const EdgeInsets.only(left: 20, right: 20),
+        margin: const EdgeInsets.only(left: 10, right: 10),
         width: double.infinity,
         child: Obx(() {
           return adddeviceController.toggleAddDevice.value

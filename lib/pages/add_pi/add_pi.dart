@@ -9,8 +9,8 @@ import 'package:pihost/pages/add_pi/no_devices.dart';
 class AddPi extends StatelessWidget {
   AddPi({super.key});
 
-  final AddDeviceController adddeviceController =
-      Get.put(AddDeviceController());
+  final SwitchController adddeviceController =
+      Get.put(SwitchController());
   final DeviceController deviceController = Get.put(DeviceController());
 
   @override

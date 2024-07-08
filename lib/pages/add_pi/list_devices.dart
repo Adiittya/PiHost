@@ -8,7 +8,6 @@ class ListDevices extends StatelessWidget {
   ListDevices({super.key});
 
   final DeviceController deviceController = Get.put(DeviceController());
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,7 +38,7 @@ class ListDevices extends StatelessWidget {
                         ),
                         child: InkWell(
                           onTap: () {
-                            Get.to(() => PiDetails(), arguments: device);
+                            Get.to(() => const PiDetails(), arguments: device);
                           },
                           child: Row(
                             children: [

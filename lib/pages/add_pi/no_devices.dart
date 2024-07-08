@@ -8,7 +8,7 @@ class NoDevices extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AddDeviceController addDeviceController = Get.find();
+    final SwitchController addDeviceController = Get.find();
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +58,6 @@ class NoDevices extends StatelessWidget {
             ),
           ),
         ),
-        
       ],
     );
   }

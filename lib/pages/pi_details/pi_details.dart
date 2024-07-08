@@ -3,11 +3,18 @@ import 'package:get/get.dart';
 import 'package:pihost/constants.dart';
 import 'package:pihost/controllers/controllers.dart';
 import 'package:pihost/model/models.dart';
+import 'package:pihost/pages/pi_details/pi_shell.dart';
+import 'package:pihost/pages/pi_details/pi_stats.dart';
 
-class PiDetails extends StatelessWidget {
+class PiDetails extends StatefulWidget {
+  const PiDetails({super.key});
+
+  @override
+  State<PiDetails> createState() => _PiDetailsState();
+}
+
+class _PiDetailsState extends State<PiDetails> {
   final Device device = Get.arguments;
-
-  PiDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +22,7 @@ class PiDetails extends StatelessWidget {
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
+        forceMaterialTransparency: true,
         automaticallyImplyLeading: false,
         backgroundColor: bgColor,
         title: const Text(
@@ -40,72 +48,20 @@ class PiDetails extends StatelessWidget {
           ),
         ],
       ),
-      body: Container(
-        margin: const EdgeInsets.only(right: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Expanded(
-              child: PageView.builder(
-                scrollDirection: Axis.horizontal,
-                scrollBehavior: const MaterialScrollBehavior(),
-                itemCount: 2,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(left: 10.0),
-                    child: GridView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 4,
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        mainAxisSpacing: 10,
-                        crossAxisSpacing: 10,
-                        childAspectRatio: 1.6,
-                        crossAxisCount: 2,
-                      ),
-                      itemBuilder: (context, index) {
-                        return Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: deviceList,
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Icon(
-                                Icons.memory,
-                                color: Colors.white,
-                                size: 20,
-                              ),
-                              SizedBox(height: 10),
-                              Text(
-                                "Memory",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 17,
-                                ),
-                              ),
-                              Text(
-                                "4GB",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ],
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                },
-              ),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            margin: const EdgeInsets.only(left: 5, right: 5),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 20),
+                PiStats(),
+                SizedBox(height: 20),
+                PiShell()
+              ],
             ),
-            const SizedBox(height: 20),
-          ],
+          ),
         ),
       ),
     );

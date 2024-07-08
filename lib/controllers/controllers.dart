@@ -9,11 +9,16 @@ class ErrorController extends GetxController {
   }
 }
 
-class AddDeviceController extends GetxController {
+class SwitchController extends GetxController {
   final toggleAddDevice = false.obs;
+  final toggleAddCommand = false.obs;
 
   void toggleDeviceView() {
     toggleAddDevice.value = !toggleAddDevice.value;
+  }
+
+  void toggleCommandView() {
+    toggleAddCommand.value = !toggleAddCommand.value;
   }
 }
 
@@ -36,5 +41,9 @@ class DeviceController extends GetxController {
 
   void connectDevice(Device device) {
     // Connect to the device
+  }
+
+  void disconnectDevice(Device device) {
+    // Disconnect from the device
   }
 }

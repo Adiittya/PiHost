@@ -69,7 +69,7 @@ class _AddDeviceState extends State<AddDevice> {
 
   @override
   Widget build(BuildContext context) {
-    final AddDeviceController addDeviceController = Get.find();
+    final SwitchController switchController = Get.find();
     final DeviceController deviceController = Get.find();
     
 
@@ -151,7 +151,7 @@ class _AddDeviceState extends State<AddDevice> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    addDeviceController.toggleDeviceView();
+                    switchController.toggleDeviceView();
                     _deviceNameController.clear();
                     _usernameController.clear();
                     _ipAddressController.clear();
@@ -184,7 +184,7 @@ class _AddDeviceState extends State<AddDevice> {
                         portNumber: int.parse(_portNumberController.text),
                       );
                       deviceController.addDevice(device);
-                      addDeviceController.toggleDeviceView();
+                      switchController.toggleDeviceView();
                     } else {
                       Get.snackbar("Error", _errorMessage!);
                     }
